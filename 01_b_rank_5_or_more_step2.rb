@@ -1,9 +1,50 @@
 # 複数行の入力と出力 (paizaランク D 相当)
 # https://paiza.jp/works/mondai/prob60/5_or_more_1
 
+<< EOS
+
+入力例1
+1
+54
+
+出力例1
+54
+
+入力例2
+4
+382
+695
+928
+577
+
+出力例2
+382
+695
+928
+577
+
+入力例3
+5
+856
+246
+368
+346
+336
+
+出力例3
+856
+246
+368
+346
+336
+
+EOS
+
+# [解答例1]
 n = gets.to_i
 n.times { puts gets }
 
+# [解答例2]
 ary = gets.to_i.times.map { gets.to_i }
 ary.each { |num| puts num }
 
