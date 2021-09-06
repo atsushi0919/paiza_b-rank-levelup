@@ -31,6 +31,28 @@ OUTPUT3 = <<~"EOS"
   21
 EOS
 
+def solve(input_lines)
+  # 入力データ受け取り
+  input_lines = input_lines.split("\n")
+  n = input_lines.shift.to_i
+  ary = []
+  input_lines.shift(n).each do |line|
+    ary.push(line.split.map(&:to_i))
+  end
+
+  # 確認用コード
+  [n, ary]
+end
+
+p solve(INPUT1)
+# > [5, [[2, 1], [3, 6], [4, 2], [4, 4], [4, 70]]]
+p solve(INPUT2)
+# > [1, [[0, 0]]]
+p solve(INPUT3)
+# > [3, [[1, 2], [3, 4], [5, 6]]]
+
+exit
+
 =begin
 def solve(input_lines)
   input_lines = input_lines.split("\n")
@@ -53,15 +75,17 @@ end
 =end
 
 def solve(input_lines)
-  _, *ary = input_lines.split("\n")
+  _, *lines = input_lines.split("\n")
 
-  result = ary.map { |item|
-    a, b = item.split.map(&:to_i)
+  result = lines.map { |line|
+    a, b = line.split.map(&:to_i)
     a == b ? a * b : a + b
   }.sum
+
+  result.to_s << "\n"
 end
 
-p solve(INPUT1)
+puts solve(STDIN.read)
 
 =begin
 足すか掛けるか (paizaランク C 相当)

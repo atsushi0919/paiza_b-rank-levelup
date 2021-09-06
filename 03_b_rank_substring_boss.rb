@@ -25,14 +25,39 @@ OUTPUT3 = <<~"EOS"
   W
 EOS
 
+=begin
 def solve(input_lines)
+  # 入力データ受け取り
   input_lines = input_lines.split("\n")
   a, b = input_lines.shift.split.map(&:to_i)
   s = input_lines.shift
-  [a, b, s]
+
+  # 文字列のa番目からb番目までを参照して result に追加していく
+  result = ""
+  (a..b).each { |idx| result << s[idx - 1] }
+
+  # 文字列型に変換して末尾に改行を追加する
+  result.to_s << "\n"
+end
+=end
+
+def solve(input_lines)
+  # 入力データ受け取り
+  input_lines = input_lines.split("\n")
+  a, b = input_lines.shift.split.map(&:to_i)
+  s = input_lines.shift
+
+  # 指定範囲で文字列を抜き出す
+  result = s[a - 1..b - 1]
+
+  # sliceメソッドで文字列を抜き出す
+  # result = s.slice(a - 1..b - 1)
+
+  # 末尾に改行を追加する
+  result << "\n"
 end
 
-p solve(INPUT1)
+puts solve(STDIN.read)
 
 =begin
 文字列を切り取る (paizaランク D 相当)

@@ -1,10 +1,45 @@
 # あいだの整数 (paizaランク D 相当)
 # https://paiza.jp/works/mondai/prob60/substring_4
 
-=begin
+<<"EOS"
+
+入力例1
+0 10
+
+出力例1
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+入力例2
+5 10
+
+出力例2
+5
+6
+7
+8
+9
+10
+
+入力例3
+3 3
+
+出力例3
+3
+
+EOS
+
 a, b = gets.split.map(&:to_i)
 (a..b).each { |num| puts num }
-=end
 
 a, b = gets.split.map(&:to_i)
 num = a

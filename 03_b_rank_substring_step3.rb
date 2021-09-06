@@ -1,9 +1,30 @@
 # 文字列の長さ (paizaランク D 相当)
 # https://paiza.jp/works/mondai/prob60/substring_2
 
+<<"EOS"
+
+入力例1
+input
+
+出力例1
+5
+
+入力例2
+abc123
+
+出力例2
+6
+
+入力例3
+0123456789
+
+出力例3
+10
+
+EOS
+
 s = gets.chomp
 puts s.length
-
 
 =begin
 文字列の長さ (paizaランク D 相当)

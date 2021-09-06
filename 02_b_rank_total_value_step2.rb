@@ -1,11 +1,51 @@
 # 文字列の出力 (paizaランク D 相当)
 # https://paiza.jp/works/mondai/prob60/total_value_1
 
+<<"EOS"
+
+入力例1
+3
+AB
+CD
+EF
+
+出力例1
+AB
+CD
+EF
+
+入力例2
+3
+1
+2
+3
+
+出力例2
+1
+2
+3
+
+入力例3
+3
+a
+b
+c
+
+出力例3
+a
+b
+c
+
+EOS
+
+# [解答例1]
 n = gets.to_i
 n.times { puts gets }
 
-ary = gets.to_i.times.map { gets.to_i }
-ary.each { |num| puts num }
+# [解答例2]
+n = gets.to_i
+ary = n.times.map { gets.chomp }
+puts ary
 
 =begin
 文字列の出力 (paizaランク D 相当)

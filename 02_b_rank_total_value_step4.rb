@@ -1,9 +1,33 @@
 # 整数の足し算 (paizaランク D 相当)
 # https://paiza.jp/works/mondai/prob60/total_value_3
 
+<<"EOS"
+
+入力例1
+0 0
+
+出力例1
+0
+
+入力例2
+1 2
+
+出力例2
+3
+
+入力例3
+10 20
+
+出力例3
+30
+
+EOS
+
+# [解答例1]
 a, b = gets.split.map(&:to_i)
 puts a + b
 
+# [解答例2]
 puts gets.split.map(&:to_i).sum
 
 =begin

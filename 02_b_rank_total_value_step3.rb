@@ -1,13 +1,39 @@
 # 文字列の分割 (paizaランク D 相当)
 # https://paiza.jp/works/mondai/prob60/total_value_2
 
+<<"EOS"
+
+入力例1
+Hello World
+
+出力例1
+Hello
+World
+
+入力例2
+apple orange
+
+出力例2
+apple
+orange
+
+入力例3
+12 345
+
+出力例3
+12
+345
+
+EOS
+
+# [解答例1]
 a, b = gets.split
 puts a
 puts b
 
+# [解答例2]
 ary = gets.split
 puts ary
-
 
 =begin
 文字列の分割 (paizaランク D 相当)

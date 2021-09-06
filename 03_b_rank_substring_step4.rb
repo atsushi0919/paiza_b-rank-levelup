@@ -1,6 +1,28 @@
 # 文字列の１文字目 (paizaランク D 相当)
 # https://paiza.jp/works/mondai/prob60/substring_3
 
+<<"EOS"
+
+入力例1
+abc
+
+出力例1
+a
+
+入力例2
+123
+
+出力例2
+1
+
+入力例3
+1234567890
+
+出力例3
+1
+
+EOS
+
 s = gets.chomp
 puts s[0]
 
