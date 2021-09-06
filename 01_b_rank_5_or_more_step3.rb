@@ -1,11 +1,14 @@
 # 配列（リスト）要素の合計 (paizaランク D 相当)
 # https://paiza.jp/works/mondai/prob60/5_or_more_2
+
 ary = [1, 3, 5, 6, 3, 2, 5, 23, 2]
 
+# [解答例1]
 result = 0
 ary.each { |num| result += num }
 puts result
 
+# [解答例2]
 puts ary.sum
 
 =begin

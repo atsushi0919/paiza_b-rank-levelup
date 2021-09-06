@@ -1,6 +1,29 @@
 # 5以上か4以下か (paizaランク D 相当)
 # https://paiza.jp/works/mondai/prob60/5_or_more_3
 
+<<"EOS"
+
+入力例1
+5
+
+出力例1
+high
+
+入力例2
+6
+
+出力例2
+high
+
+入力例3
+4
+
+出力例3
+low
+
+EOS
+
+# [解答例1]
 n = gets.to_i
 if n >= 5
   puts "high"
@@ -8,7 +31,9 @@ else
   puts "low"
 end
 
-puts gets.to_i >= 5 ? "high" : "low"
+# [解答例2]
+n = gets.to_i
+puts n >= 5 ? "high" : "low"
 
 =begin
 5以上か4以下か (paizaランク D 相当)

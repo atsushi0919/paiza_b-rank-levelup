@@ -3,12 +3,16 @@
 
 ary = [4, 0, 5, -1, 3, 10, 6, -8]
 
+# [解答例1]
 result = 0
 ary.each do |num|
-  result += num if num >= 5
+  if num >= 5
+    result += num 
+  end
 end
 puts result
 
+# [解答例2]
 puts ary.select { |num| num >= 5 }.sum
 
 =begin

@@ -37,6 +37,28 @@ OUTPUT3 = <<~"EOS"
   19
 EOS
 
+def solve(input_lines)
+  # 入力データ受け取り
+  input_lines = input_lines.split.map(&:to_i)
+  n = input_lines.shift
+  ary = input_lines.shift(n)
+
+  # 配列 ary の値が5以上なら result に足す
+  result = 0
+  ary.each do |num|
+    if num >= 5
+      result += num
+    end
+  end
+
+  # 文字列型に変換して末尾に改行を追加する
+  result.to_s << "\n"
+end
+
+puts solve(STDIN.read)
+
+exit
+
 =begin
 def solve(input_lines)
   n, *ary = input_lines.split.map(&:to_i)
@@ -51,7 +73,7 @@ def solve(input_lines)
   ary.select { |num| num >= 5 }.sum
 end
 
-p solve(INPUT3)
+puts solve(STDIN.read)
 
 =begin
 5以上の整数の合計 (paizaランク C 相当)
