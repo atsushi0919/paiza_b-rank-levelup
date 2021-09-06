@@ -45,7 +45,26 @@ EOS
 n = gets.to_i
 ary = gets.split.map(&:to_i)
 
+sorted_ary = []
+ary.each do |t_n|
+  inserted = false
+  sorted_ary.each_with_index do |a_n, idx|
+    if t_n < a_n
+      sorted_ary.insert(idx, t_n)
+      inserted = true
+      break
+    end
+  end
+  sorted_ary << t_n if not inserted
+end
+puts sorted_ary
+
+=begin
+n = gets.to_i
+ary = gets.split.map(&:to_i)
+
 puts ary.sort
+=end
 
 =begin
 昇順ソート出力 (paizaランク D 相当)
