@@ -1,3 +1,112 @@
+# 五目並べ (paizaランク B 相当)
+# https://paiza.jp/works/mondai/prob60/tic_tac_toe_9
+
+INPUT1 = <<~"EOS"
+  XXOXO
+  OXOXX
+  OOOOO
+  OXOX.
+  XOXXO
+EOS
+OUTPUT1 = <<~"EOS"
+  O
+EOS
+
+INPUT2 = <<~"EOS"
+  XXOXO
+  OXOXX
+  .OXXO
+  OXOO.
+  XXXXX
+EOS
+OUTPUT2 = <<~"EOS"
+  X
+EOS
+
+INPUT3 = <<~"EOS"
+  ...X.
+  ...X.
+  ...X.
+  ...X.
+  OOOO.
+EOS
+OUTPUT3 = <<~"EOS"
+  D
+EOS
+
+=begin
+# [解答例1]
+def solve(input_lines)
+  h_lines = input_lines.split("\n").map(&:chars)
+
+  n = h_lines.length
+  v_lines = h_lines.transpose
+  d_lines = [[], []]
+  (0..n - 1).each do |i|
+    d_lines[0].push(h_lines[i][i])
+    d_lines[1].push(h_lines[n - 1 - i][i])
+  end
+
+  all_lines = h_lines + v_lines + d_lines
+
+  result = "D"
+  all_lines.each do |line|
+    if line.count("O") == n
+      result = "O"
+      break
+    elsif line.count("X") == n
+      result = "X"
+      break
+    end
+  end
+  result
+end
+
+#puts solve(STDIN.read)
+
+# [参考 確認用コード]
+p solve(INPUT1)
+p solve(INPUT2)
+p solve(INPUT3)
+=end
+
+# [解答例2]
+def get_all_lines(board)
+  n = board.length
+  v_lines = board.transpose
+  d_lines = [[], []]
+  (0..n - 1).each do |i|
+    d_lines[0].push(board[i][i])
+    d_lines[1].push(board[n - 1 - i][i])
+  end
+
+  board + v_lines + d_lines
+end
+
+def solve(input_lines)
+  board = input_lines.split("\n").map(&:chars)
+  all_lines = get_all_lines(board)
+
+  result = "D"
+  all_lines.each do |line|
+    if line.count("O") == 5
+      result = "O"
+      break
+    elsif line.count("X") == 5
+      result = "X"
+      break
+    end
+  end
+  result
+end
+
+#puts solve(STDIN.read)
+
+# [参考 確認用コード]
+p solve(INPUT1)
+p solve(INPUT2)
+p solve(INPUT3)
+
 =begin
 五目並べ (paizaランク B 相当)
 問題にチャレンジして、ユーザー同士で解答を教え合ったり、コードを公開してみよう！

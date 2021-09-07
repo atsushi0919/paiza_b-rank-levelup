@@ -55,7 +55,7 @@ puts result
 =begin
 # [解答例2]
 N = 5
-h_lines = N.times.map { gets.chars }
+h_lines = N.times.map { gets.chomp.chars }
 result = "D"
 h_lines.each do |line|
   if line.count("O") == 5
@@ -74,12 +74,13 @@ puts result
 def solve(input_lines)
   h_lines = input_lines.split("\n").map(&:chars)
 
+  n = h_lines.length
   result = "D"
   h_lines.each do |line|
-    if line.count("O") == 5
+    if line.count("O") == n
       result = "O"
       break
-    elsif line.count("X") == 5
+    elsif line.count("X") == n
       result = "X"
       break
     end

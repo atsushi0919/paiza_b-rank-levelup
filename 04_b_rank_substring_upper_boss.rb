@@ -42,6 +42,23 @@ s[a - 1..b - 1] = s[a - 1..b - 1].upcase
 puts s
 =end
 
+def solve(input_lines)
+  # 入力データ受け取り
+  input_lines = input_lines.split("\n")
+  a, b = input_lines.shift.split.map(&:to_i)
+  s = input_lines.shift
+
+  # 指定範囲を大文字で上書きする
+  (a..b).each do |idx|
+    s[idx - 1] = s[idx - 1].upcase
+  end
+
+  # 文字列の末尾に改行を追加する
+  s << "\n"
+end
+
+puts solve(STDIN.read)
+
 =begin
 指定範囲だけ大文字 (paizaランク C 相当)
 問題にチャレンジして、ユーザー同士で解答を教え合ったり、コードを公開してみよう！
