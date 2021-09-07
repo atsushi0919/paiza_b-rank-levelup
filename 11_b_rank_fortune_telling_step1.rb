@@ -1,3 +1,21 @@
+# 連想配列（辞書）を使う (paizaランク D 相当)
+# https://paiza.jp/works/mondai/prob60/fortune_telling_0
+
+users = {
+  "Kyoko" => "B",
+  "Rio" => "O",
+  "Tsubame" => "AB",
+  "KurodaSensei" => "A",
+  "NekoSensei" => "A",
+}
+
+# [解答例1]
+# users.each { |key, val| puts "#{key} #{val}" }
+
+# [解答例2]
+# users.each { |user| puts user.join(" ") }
+
+=begin
 連想配列（辞書）を使う (paizaランク D 相当)
 問題にチャレンジして、ユーザー同士で解答を教え合ったり、コードを公開してみよう！
 
@@ -27,3 +45,4 @@ NekoSensei	A
 最後は改行し、余計な文字、空行を含んではいけません。
 
 条件
+=end

@@ -1,3 +1,4 @@
+=begin
 占い (paizaランク C 相当)
 問題にチャレンジして、ユーザー同士で解答を教え合ったり、コードを公開してみよう！
 
@@ -114,3 +115,4 @@ eee555 vvv
 AAA zzz
 BBB yyy
 CCC xxx
+=end

@@ -1,3 +1,55 @@
+# 1つの血液型を占う (paizaランク C 相当)
+# https://paiza.jp/works/mondai/prob60/fortune_telling_3
+
+<<"EOS"
+
+入力例1
+A
+4
+A Good
+B VeryGood
+O Yavai
+AB VeryYavai
+
+出力例1
+Good
+
+入力例2
+B
+4
+A Good
+B VeryGood
+O Yavai
+AB VeryYavai
+
+出力例2
+VeryGood
+
+入力例3
+O
+4
+A Good
+B VeryGood
+O Yavai
+AB VeryYavai
+
+出力例3
+Yavai
+
+EOS
+
+t = gets.chomp
+m = gets.to_i
+
+fortune_telling = {}
+m.times do
+  blood_type, fortune = gets.split
+  fortune_telling[blood_type] = fortune
+end
+
+puts fortune_telling[t]
+
+=begin
 1つの血液型を占う (paizaランク C 相当)
 問題にチャレンジして、ユーザー同士で解答を教え合ったり、コードを公開してみよう！
 
@@ -70,3 +122,4 @@ AB VeryYavai
 
 出力例3
 Yavai
+=end

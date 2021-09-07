@@ -1,3 +1,91 @@
+# 1人の占い結果 (paizaランク C 相当)
+# https://paiza.jp/works/mondai/prob60/fortune_telling_4
+
+<<"EOS"
+
+入力例1
+Kyoko
+5
+Kyoko B
+Rio O
+Tsubame AB
+KurodaSensei A
+NekoSensei A
+4
+A red
+B green
+O blue
+AB yellow
+
+出力例1
+green
+
+入力例2
+Rio
+5
+Kyoko shishiza
+Rio futagoza
+Tsubame otomeza
+KurodaSensei yagiza
+NekoSensei mizugameza
+5
+shishiza the_first_person
+yagiza the_second_person
+otomeza the_first_cat
+mizugameza the_first_dog
+futagoza NekoSensei
+
+出力例2
+NekoSensei
+
+入力例3
+CCC
+3
+AAA aaa111
+BBB bbb222
+CCC ccc333
+5
+aaa111 zzz
+bbb222 yyy
+ccc333 xxx
+ddd444 www
+eee555 vvv
+
+出力例3
+xxx
+
+EOS
+
+=begin
+# [解答例1]
+u = gets.chomp
+n = gets.to_i
+users = {}
+n.times do
+  name, blood_type = gets.split
+  users[name] = blood_type
+end
+m = gets.to_i
+fortune_telling = {}
+m.times do
+  blood_type, fortune = gets.split
+  fortune_telling[blood_type] = fortune
+end
+
+u_blood_type = users["Kyoko"]
+puts fortune_telling[u_blood_type]
+=end
+
+# [解答例2]
+u = gets.chomp
+n = gets.to_i
+users = n.times { gets.split }.to_h
+m = gets.to_i
+fortune_telling = m.times { gets.split }.to_h
+
+puts fortune_telling[users["Kyoko"]]
+
+=begin
 1人の占い結果 (paizaランク C 相当)
 問題にチャレンジして、ユーザー同士で解答を教え合ったり、コードを公開してみよう！
 
@@ -111,3 +199,4 @@ eee555 vvv
 
 出力例3
 xxx
+=end

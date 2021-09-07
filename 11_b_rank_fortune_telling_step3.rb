@@ -1,3 +1,58 @@
+# 1人の血液型 (paizaランク C 相当)
+# https://paiza.jp/works/mondai/prob60/fortune_telling_2
+
+<<"EOS"
+
+入力例1
+Kyoko
+5
+Kyoko B
+Rio O
+Tsubame AB
+KurodaSensei A
+NekoSensei A
+
+出力例1
+Kyoko B
+
+入力例2
+otomeza
+5
+shishiza O
+yagiza O
+otomeza AB
+mizugameza B
+futagoza A
+
+出力例2
+otomeza AB
+
+入力例3
+EEE
+5
+AAA A
+BBB B
+CCC A
+DDD AB
+EEE O
+
+出力例3
+EEE O
+
+EOS
+
+s = gets.chomp
+n = gets.to_i
+
+users = {}
+n.times do
+  name, blood_type = gets.split
+  users[name] = blood_type
+end
+
+puts "#{s} #{users[s]}"
+
+=begin
 1人の血液型 (paizaランク C 相当)
 問題にチャレンジして、ユーザー同士で解答を教え合ったり、コードを公開してみよう！
 
@@ -74,3 +129,4 @@ EEE O
 
 出力例3
 EEE O
+=end
