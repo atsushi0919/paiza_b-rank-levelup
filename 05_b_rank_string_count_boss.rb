@@ -24,6 +24,25 @@ OUTPUT3 = <<~"EOS"
   5
 EOS
 
+def solve(input_lines)
+  # 入力データ受け取り
+  c, s = input_lines.split
+
+  # 文字列s の先頭から順に文字c と一致するかを調べる
+  n = s.length
+  result = 0
+  (0..n - 1).each do |idx|
+    result += 1 if s[idx] == c
+  end
+
+  # 文字列に変換して末尾に改行を追加する
+  result.to_s << "\n"
+end
+
+puts solve(STDIN.read)
+
+exit
+
 =begin
 # [解答例1]
 def solve(input_lines)
@@ -41,12 +60,11 @@ end
 # [解答例2]
 def solve(input_lines)
   c, s = input_lines.split
-  s.count(c)
+
+  s.count(c).to_s << "\n"
 end
 
-p solve(INPUT1)
-p solve(INPUT2)
-p solve(INPUT3)
+puts solve(STDIN.read)
 
 =begin
 文字の重複カウント (paizaランク D 相当)
