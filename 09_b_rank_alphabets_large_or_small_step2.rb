@@ -1,3 +1,82 @@
+# アルファベットの範囲の文字の出力 (paizaランク D 相当)
+# https://paiza.jp/works/mondai/prob60/alphabets_large_or_small_1
+
+<<"EOS"
+
+入力例1
+GINO
+
+出力例1
+G
+H
+I
+J
+K
+L
+M
+N
+O
+
+入力例2
+CZ
+
+出力例2
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+M
+N
+O
+P
+Q
+R
+S
+T
+U
+V
+W
+X
+Y
+Z
+
+入力例3
+JP
+
+出力例3
+J
+K
+L
+M
+N
+O
+P
+
+EOS
+
+=begin
+# "A" から "Z" までの文字列
+ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+s = gets.chomp
+top_idx = ALPHABET.index(s[0])
+end_idx = ALPHABET.index(s[-1])
+puts ALPHABET[top_idx..end_idx]
+=end
+
+=begin
+s = gets.chomp
+top_chr = s[0]
+end_chr = s[-1]
+puts (top_chr..end_chr).to_a
+=end
+
 =begin
 アルファベットの範囲の文字の出力 (paizaランク D 相当)
 問題にチャレンジして、ユーザー同士で解答を教え合ったり、コードを公開してみよう！

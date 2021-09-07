@@ -1,9 +1,59 @@
-=begin
-文字列の出力 (paizaランク D 相当)
-問題にチャレンジして、ユーザー同士で解答を教え合ったり、コードを公開してみよう！
+# 文字列の出力 (paizaランク D 相当)
+# https://paiza.jp/works/mondai/prob60/alphabets_large_or_small_0
 
-シェア用URL:
-https://paiza.jp/works/mondai/prob60/alphabets_large_or_small_0
+<<"EOS"
+
+入力例1
+kirishima
+kuroda
+rokumura
+
+出力例1
+kirishima
+kuroda
+rokumura
+
+入力例2
+tenshoku
+shinsotsu
+entry
+
+出力例2
+tenshoku
+shinsotsu
+entry
+
+入力例3
+Tokyo
+Osaka
+Nagoya
+
+出力例3
+Tokyo
+Osaka
+Nagoya
+
+EOS
+
+=begin
+# [解答例1]
+a = gets.chomp
+b = gets.chomp
+c = gets.chomp
+puts a
+puts b
+puts c
+=end
+
+=begin
+# [解答例2]
+N = 3
+ary = N.times.map { gets.chomp }
+puts ary
+=end
+
+=begin
+
 問題文のURLをコピーする
 Img 04 03 下記の問題をプログラミングしてみよう！
 3つの文字列が3行で入力されるので、入力された文字列をそのまま1行ずつ出力してください。
