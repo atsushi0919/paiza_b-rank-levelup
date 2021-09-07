@@ -1,3 +1,7 @@
+# 五目並べ（縦） (paizaランク C 相当)
+# https://paiza.jp/works/mondai/prob60/tic_tac_toe_3
+
+=begin
 五目並べ（縦） (paizaランク C 相当)
 問題にチャレンジして、ユーザー同士で解答を教え合ったり、コードを公開してみよう！
 
@@ -70,3 +74,4 @@ OOOO.
 
 出力例3
 D
+=end

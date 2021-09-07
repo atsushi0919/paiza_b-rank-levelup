@@ -1,3 +1,64 @@
+# 五目並べ(1行) (paizaランク D 相当)
+# https://paiza.jp/works/mondai/prob60/tic_tac_toe_1
+
+<<"EOS"
+
+入力例1
+OOOOO
+
+出力例1
+O
+
+入力例2
+OXOOO
+
+出力例2
+D
+
+入力例3
+...O.
+
+出力例3
+D
+
+EOS
+
+=begin
+# [解答例1]
+s = gets.chomp
+
+o, x = 0, 0
+(0..s.length - 1).each do |idx|
+  if s[idx] == "O"
+    o += 1
+  elsif s[idx] == "X"
+    x += 1
+  end
+end
+
+if o == 5
+  puts "O"
+elsif x == 5
+  puts "X"
+else
+  puts "D"
+end
+=end
+
+=begin
+# [解答例2]
+s = gets.chomp
+
+if s.count("O") == 5
+  puts "O"
+elsif s.count("X") == 5
+  puts "X"
+else
+  puts "D"
+end
+=end
+
+=begin
 五目並べ(1行) (paizaランク D 相当)
 問題にチャレンジして、ユーザー同士で解答を教え合ったり、コードを公開してみよう！
 
@@ -54,3 +115,4 @@ D
 
 出力例3
 D
+=end

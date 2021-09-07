@@ -1,3 +1,62 @@
+# 文字列の出力 (paizaランク D 相当)
+# https://paiza.jp/works/mondai/prob60/tic_tac_toe_0
+
+<<"EOS"
+
+入力例1
+XXOXO
+OXOXX
+OOOOO
+OXOX.
+XOXXO
+
+出力例1
+XXOXO
+OXOXX
+OOOOO
+OXOX.
+XOXXO
+
+入力例2
+XXOXO
+OXOXX
+.OXXO
+OXOO.
+XXXXX
+
+出力例2
+XXOXO
+OXOXX
+.OXXO
+OXOO.
+XXXXX
+
+入力例3
+...X.
+...X.
+...X.
+...X.
+OOOO.
+
+出力例3
+...X.
+...X.
+...X.
+...X.
+OOOO.
+
+EOS
+
+# [解答例1]
+N = 5
+N.times { puts gets }
+
+# [解答例2]
+N = 5
+ary = N.times.map { gets.chomp }
+puts ary
+
+=begin
 文字列の出力 (paizaランク D 相当)
 問題にチャレンジして、ユーザー同士で解答を教え合ったり、コードを公開してみよう！
 
@@ -78,3 +137,4 @@ OOOO.
 ...X.
 ...X.
 OOOO.
+=end

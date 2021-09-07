@@ -1,8 +1,100 @@
-五目並べ(横) (paizaランク C 相当)
-問題にチャレンジして、ユーザー同士で解答を教え合ったり、コードを公開してみよう！
+# 五目並べ(横) (paizaランク C 相当)
+# https://paiza.jp/works/mondai/prob60/tic_tac_toe_2
 
-シェア用URL:
-https://paiza.jp/works/mondai/prob60/tic_tac_toe_2
+INPUT1 = <<~"EOS"
+  XXOXO
+  OXOXX
+  OOOOO
+  OXOX.
+  XOXXO
+EOS
+OUTPUT1 = <<~"EOS"
+  O
+EOS
+
+INPUT2 = <<~"EOS"
+  XXOXO
+  OXOXX
+  .OXXO
+  OXOO.
+  XXXXX
+EOS
+OUTPUT2 = <<~"EOS"
+  X
+EOS
+
+INPUT3 = <<~"EOS"
+  O.O.X
+  OXX.X
+  O.X.X
+  OO..X
+  X.XOX
+EOS
+OUTPUT3 = <<~"EOS"
+  D
+EOS
+
+=begin
+N = 5
+h_lines = N.times.map { gets.chomp }
+
+result = "D"
+h_lines.each do |line|
+  if line.count("O") == 5
+    result = "O"
+    break
+  elsif line.count("X") == 5
+    result = "X"
+    break
+  end
+end
+
+puts result
+=end
+
+=begin
+# [解答例2]
+N = 5
+h_lines = N.times.map { gets.chars }
+result = "D"
+h_lines.each do |line|
+  if line.count("O") == 5
+    result = "O"
+    break
+  elsif line.count("X") == 5
+    result = "X"
+    break
+  end
+end
+
+puts result
+=end
+
+# [解答例3]
+def solve(input_lines)
+  h_lines = input_lines.split("\n").map(&:chars)
+
+  result = "D"
+  h_lines.each do |line|
+    if line.count("O") == 5
+      result = "O"
+      break
+    elsif line.count("X") == 5
+      result = "X"
+      break
+    end
+  end
+  result
+end
+
+puts solve(STDIN.read)
+
+# [参考 確認用コード]
+# puts solve(INPUT1)
+# puts solve(INPUT2)
+# puts solve(INPUT3)
+
+=begin
 問題文のURLをコピーする
 Img 04 03 下記の問題をプログラミングしてみよう！
 5行5列の五目並べの盤面が与えられます。
@@ -70,3 +162,4 @@ X.XOX
 
 出力例3
 D
+=end
