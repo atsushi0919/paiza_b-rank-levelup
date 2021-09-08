@@ -4,7 +4,8 @@
 ary = ["Nara", "Shiga", "Hokkaido", "Chiba"]
 
 # [解答例1]
-0.upto(ary.length - 1) { |idx| puts ary[idx] }
+n = ary.length
+(0..n - 1).each { |idx| puts ary[idx] }
 
 # [解答例2]
 puts ary
