@@ -56,7 +56,6 @@ xxx
 
 EOS
 
-=begin
 # [解答例1]
 u = gets.chomp
 n = gets.to_i
@@ -72,18 +71,17 @@ m.times do
   fortune_telling[blood_type] = fortune
 end
 
-u_blood_type = users["Kyoko"]
+u_blood_type = users[u]
 puts fortune_telling[u_blood_type]
-=end
 
 # [解答例2]
 u = gets.chomp
 n = gets.to_i
-users = n.times { gets.split }.to_h
+users = n.times.map { gets.split }.to_h
 m = gets.to_i
-fortune_telling = m.times { gets.split }.to_h
+fortune_telling = m.times.map { gets.split }.to_h
 
-puts fortune_telling[users["Kyoko"]]
+puts fortune_telling[users[u]]
 
 =begin
 1人の占い結果 (paizaランク C 相当)
