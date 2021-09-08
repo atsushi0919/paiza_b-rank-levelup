@@ -1,12 +1,77 @@
-文字と整数の組のソート2 (paizaランク C 相当)
-問題にチャレンジして、ユーザー同士で解答を教え合ったり、コードを公開してみよう！
+# 文字と整数の組のソート2 (paizaランク C 相当)
+# https://paiza.jp/works/mondai/prob60/sort_add_9
 
-シェア用URL:
-https://paiza.jp/works/mondai/prob60/sort_add_9
-問題文のURLをコピーする
-Img 04 03 下記の問題をプログラミングしてみよう！
+INPUT1 = <<~"EOS"
+  7
+  A 1
+  D 6
+  C 2
+  G 4
+  B 70
+  A 10
+  B 5
+EOS
+OUTPUT1 = <<~"EOS"
+  B 75
+  A 11
+  D 6
+  G 4
+  C 2
+EOS
+
+INPUT2 = <<~"EOS"
+  3
+  G 0
+  S 3
+  E -2
+EOS
+OUTPUT2 = <<~"EOS"
+  S 3
+  G 0
+  E -2
+EOS
+
+INPUT3 = <<~"EOS"
+  5
+  A -2
+  E 0
+  W -5
+  A -1
+  E -20
+EOS
+OUTPUT3 = <<~"EOS"
+  A -3
+  W -5
+  E -20
+EOS
+
+def solve(input_lines)
+  _, *lines = input_lines.split("\n")
+
+  ary = []
+  lines.each do |line|
+    s, d = line.split
+    idx = ary.index { |x| x[0] == s }
+    if idx
+      ary[idx][1] += d.to_i
+    else
+      ary.push([s, d.to_i])
+    end
+  end
+
+  ary.sort_by! { |x| x[1] }.reverse!
+
+  ary
+end
+
+p solve(INPUT1)
+p solve(INPUT2)
+p solve(INPUT3)
+
+=begin
 1行目に行数を表す整数 n、続く n 行の各行で「文字」と「整数」の組が空白区切りで入力されます。
-n 個の組について、「文字」の値が同じ組同士の数値を足しあわせてまとめ、まとめた数値の降順で、文字とまとめた数値の組を出力してください。
+n 個の組について、「文字」の値が同じ組同士の数値を足しあわせてまとめ、
+まとめた数値の降順で、文字とまとめた数値の組を出力してください。
 この際、まとめた数値は重複しません。
 
 ▼　下記解答欄にコードを記入してみよう
@@ -78,3 +143,4 @@ E -20
 A -3
 W -5
 E -20
+=end
