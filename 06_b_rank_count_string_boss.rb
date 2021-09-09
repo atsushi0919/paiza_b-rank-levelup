@@ -17,13 +17,31 @@ OUTPUT2 = <<~"EOS"
   0
 EOS
 
-INPUT3 = <<"EOS"
+INPUT3 = <<~"EOS"
   Ji
   JiJiiJiIjiIJjIJi
 EOS
 OUTPUT3 = <<~"EOS"
   4
 EOS
+
+def solve(input_lines)
+  s, t = input_lines.split
+
+  s_len = s.length
+  t_len = t.length
+  result = 0
+  (0..t_len - s_len).each do |idx|
+    result += 1 if t[idx..idx + s_len - 1] == s
+  end
+
+  # 文字列に変換して末尾に改行を追加する
+  result.to_s << "\n"
+end
+
+put solve(STDIN.read)
+
+exit
 
 =begin
 def solve(input_lines)
@@ -44,9 +62,7 @@ def solve(input_lines)
   t.scan(s).length
 end
 
-p solve(INPUT1)
-p solve(INPUT2)
-p solve(INPUT3)
+puts solve(STDIN.read)
 
 =begin
 文字列の重複カウント (paizaランク C 相当)

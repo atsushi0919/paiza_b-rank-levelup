@@ -23,9 +23,11 @@ r e
 
 EOS
 
-#s = gets.chomp
-#puts "#{s[0]} #{s[1]}"
+# [解答例1]
+s = gets.chomp
+puts "#{s[0]} #{s[1]}"
 
+# [解答例2]
 s = gets.chomp
 puts s.chars[0..1].join(" ")
 

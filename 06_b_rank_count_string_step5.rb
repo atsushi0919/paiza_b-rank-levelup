@@ -12,9 +12,9 @@ e a
 
 EOS
 
-#n = gets.to_i
-#s = gets.chomp
-#puts "#{s[n - 1]} #{s[n]}"
+n = gets.to_i
+s = gets.chomp
+puts "#{s[n - 1]} #{s[n]}"
 
 n = gets.to_i
 s = gets.chomp
