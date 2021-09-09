@@ -45,11 +45,28 @@ OUTPUT3 = <<~"EOS"
   E -20
 EOS
 
+=begin
+p INPUT1
+# > "7\nA 1\nD 6\nC 2\nG 4\nB 70\nA 10\nB 5\n"
+p OUTPUT1
+# > "B 75\nA 11\nD 6\nG 4\nC 2\n"
+p INPUT2
+# > "3\nG 0\nS 3\nE -2\n"
+p OUTPUT2
+# > "S 3\nG 0\nE -2\n"
+p INPUT3
+# > "5\nA -2\nE 0\nW -5\nA -1\nE -20\n"
+p OUTPUT3
+# > "A -3\nW -5\nE -20\n"
+=end
+
+=begin
 def solve(input_lines)
-  _, *lines = input_lines.split("\n")
+  input_lines = input_lines.split("\n")
+  n = input_lines.shift.to_i
 
   ary = []
-  lines.each do |line|
+  input_lines.each do |line|
     s, d = line.split
     idx = ary.index { |x| x[0] == s }
     if idx
@@ -59,9 +76,30 @@ def solve(input_lines)
     end
   end
 
-  ary.sort_by! { |x| x[1] }.reverse!
+  sorted_ary = ary.sort_by { |x| x[1] }.reverse
+  sorted_ary
+end
 
-  ary
+p solve(INPUT1)
+p solve(INPUT2)
+p solve(INPUT3)
+=end
+
+def solve(input_lines)
+  input_lines = input_lines.split("\n")
+  n = input_lines.shift.to_i
+  hash = {}
+  input_lines.each do |line|
+    s, d = line.split
+    if hash[s]
+      hash[s] += d.to_i
+    else
+      hash[s] = d.to_i
+    end
+  end
+
+  sorted_hash = hash.sort_by { |k, v| v }.reverse.to_h
+  sorted_hash.map { |item| item.join(" ") }.join("\n") << "\n"
 end
 
 p solve(INPUT1)
