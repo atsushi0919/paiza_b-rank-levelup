@@ -42,6 +42,7 @@
 
 EOS
 
+# [解答例1]
 n = gets.to_i
 ary = gets.split.map(&:to_i)
 
@@ -59,12 +60,11 @@ ary.each do |t_n|
 end
 puts sorted_ary
 
-=begin
+# [解答例2]
 n = gets.to_i
 ary = gets.split.map(&:to_i)
 
 puts ary.sort
-=end
 
 =begin
 昇順ソート出力 (paizaランク D 相当)

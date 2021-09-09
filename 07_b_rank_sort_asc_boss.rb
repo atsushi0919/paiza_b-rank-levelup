@@ -41,34 +41,44 @@ EOS
 
 =begin
 def solve(input_lines)
-  n, *lines = input_lines.split("\n")
+  # 入力データ受け取り
+  input_lines = input_lines.split("\n")
+  n = input_lines.shift.to_i
 
-  ary = lines.map do |line|
+  # 文字と整数のペアを配列に格納する
+  ary = input_lines.map do |line|
     s, d = line.split
     [s, d.to_i]
   end
 
-  sorted_ary = ary.sort_by{|x| x[1]}
+  # 2番目の要素（整数）で昇順に並び替えた配列を生成する
+  sorted_ary = ary.sort_by { |x| x[1] }
 
-  sorted_ary.map { |x| x[0] }
+  # 文字列に変換して末尾に改行を追加する
+  sorted_ary.map { |x| x[0] }.join("\n") << "\n"
 end
+
+puts solve(STDIN.read)
 =end
 
 def solve(input_lines)
+  # 入力データ受け取り
   n, *lines = input_lines.split("\n")
 
+  # 文字と整数のペアを配列に格納する
   ary = lines.map do |line|
     s, d = line.split
     [s, d.to_i]
   end
+
+  # 整数で昇順ソートしてハッシュに変換する
   sorted_hash = ary.sort_by { |x| x[1] }.to_h
 
-  sorted_hash.keys
+  # ハッシュのキーの配列を改行区切りで出力する
+  sorted_hash.keys.join("\n") << "\n"
 end
 
-p solve(INPUT1)
-p solve(INPUT2)
-p solve(INPUT3)
+puts solve(STDIN.read)
 
 =begin
 字と整数の組のソート (paizaランク C 相当)

@@ -45,20 +45,18 @@ E 22
 
 EOS
 
-=begin
+# [解答例1]
 n = gets.to_i
-
 ary = []
 n.times do
-  a, b = gets.split
-  ary.push([a, b.to_i])
+  s, d = gets.split
+  ary.push([s, d.to_i])
 end
-
-ary.each do |a,b|
+ary.each do |a, b|
   puts b
 end
-=end
 
+# [解答例2]
 n = gets.to_i
 hash = {}
 n.times do
@@ -68,7 +66,6 @@ end
 puts hash.values
 
 =begin
-
 問題文のURLをコピーする
 Img 04 03 下記の問題をプログラミングしてみよう！
 1行目に行数を表す整数 n、続く n 行で m 個の「文字」と「整数」の組が空白区切りで入力されます。
