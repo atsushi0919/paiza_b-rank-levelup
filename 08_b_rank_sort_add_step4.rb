@@ -3,6 +3,7 @@
 
 ary = [1, 3, 5, 6, 3, 2, 5, 23, 2]
 
+# [解答例1]
 sorted_ary = []
 ary.each do |t_n|
   inserted = false
@@ -17,7 +18,8 @@ ary.each do |t_n|
 end
 puts sorted_ary
 
-# puts ary.sort
+# [解答例2]
+puts ary.sort
 
 =begin
 問題文のURLをコピーする

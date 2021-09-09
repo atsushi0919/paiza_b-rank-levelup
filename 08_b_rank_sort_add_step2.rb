@@ -3,7 +3,7 @@
 
 ary = ["HND", "NRT", "KIX", "NGO", "NGO"]
 
-=begin
+# [解答例1]
 len = ary.length
 duplicate = false
 (0..len - 1).each do |i|
@@ -21,14 +21,15 @@ if duplicate
 else
   puts "false"
 end
-=end
 
+# [解答例2]
 hash = ary.group_by(&:itself).map { |key, val|
   [key, val.length]
 }.to_h
 puts hash.values.max > 1 ? "true" : "false"
 
-# puts ary.tally.values.max > 1 ? "true" : "false"
+# [解答例3]
+puts ary.tally.values.max > 1 ? "true" : "false"
 
 =begin
 指定された配列（リスト）の定義の中で、同じ値が存在した場合はtrueを、そうでない場合はfalseを出力してください。

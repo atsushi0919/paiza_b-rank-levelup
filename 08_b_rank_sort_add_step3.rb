@@ -3,6 +3,7 @@
 
 ary = ["HND", "NRT", "KIX", "NGO", "NGO", "NGO", "NGO", "NGO"]
 
+# [解答例1]
 len = ary.length
 count = 1
 (0..len - 1).each do |i|
@@ -15,6 +16,16 @@ count = 1
 end
 
 puts count
+
+# [解答例2]
+sorted_ary = ary.group_by(&:itself).map { |k, v|
+  [k, v.length]
+}.sort_by { |k, v| v }.reverse
+p sorted_ary[0][1]
+
+# [解答例3]
+sorted_ary = ary.tally.sort_by { |key, val| val }.reverse
+puts sorted_ary[0][1]
 
 =begin
 問題文のURLをコピーする
