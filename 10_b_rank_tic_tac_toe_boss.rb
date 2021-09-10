@@ -71,33 +71,55 @@ p solve(INPUT3)
 =end
 
 # [解答例2]
+
+# 盤面情報を与えると判定する12ラインを返す
 def get_all_lines(board)
   n = board.length
+
+  # 縦5ライン
   v_lines = board.transpose
+
+  # 斜め2ライン
   d_lines = [[], []]
   (0..n - 1).each do |i|
     d_lines[0].push(board[i][i])
     d_lines[1].push(board[n - 1 - i][i])
   end
 
+  # board: 横ライン
+  # 横5ライン・縦5ライン・斜め2ラインを配列にして返す
   board + v_lines + d_lines
 end
 
-def solve(input_lines)
-  board = input_lines.split("\n").map(&:chars)
+# ラインの情報を与えると勝者を判定する
+def judge_winner(lines)
   all_lines = get_all_lines(board)
 
-  result = "D"
   all_lines.each do |line|
     if line.count("O") == 5
-      result = "O"
-      break
+      return "O"
     elsif line.count("X") == 5
-      result = "X"
-      break
+      return "X"
     end
   end
-  result
+  return "D"
+end
+
+def solve(input_lines)
+  # 入力データ受け取り
+  board = input_lines.split("\n").map(&:chars)
+
+  # 横5ライン・縦5ライン・斜め2ラインの配列を取得
+  all_lines = get_all_lines(board)
+
+  # 各ラインを調べて勝者を判定する
+  all_lines.each do |line|
+    result = judge_winner(lines)
+    break if result != "D"
+  end
+
+  # 判定結果に改行を追加
+  result << "\n"
 end
 
 #puts solve(STDIN.read)
