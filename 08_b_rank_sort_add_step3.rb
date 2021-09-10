@@ -24,7 +24,7 @@ sorted_ary = ary.group_by(&:itself).map { |k, v|
 p sorted_ary[0][1]
 
 # [解答例3]
-sorted_ary = ary.tally.sort_by { |key, val| val }.reverse
+sorted_ary = ary.tally.sort_by { |k, v| v }.reverse
 puts sorted_ary[0][1]
 
 =begin

@@ -45,6 +45,34 @@ OUTPUT3 = <<~"EOS"
   E -20
 EOS
 
+def solve(input_lines)
+  # 入力データ受け取り
+  _, *lines = input_lines.split("\n")
+
+  # 文字と数字のペアを集計する
+  ary = []
+  lines.each do |line|
+    s, d = line.split
+    idx = ary.index { |x| x[0] == s }
+    if idx
+      ary[idx][1] += d.to_i
+    else
+      ary.push([s, d.to_i])
+    end
+  end
+
+  # 数字で降順ソートする
+  sorted_ary = ary.sort_by { |x| x[1] }.reverse
+
+  # 文字と整数を半角スペースで連結した要素を
+  # 改行区切りの文字列に変換して末尾に改行を加える
+  sorted_ary.map { |item| item.join(" ") }.join("\n") << "\n"
+end
+
+puts solve(STDIN.read)
+
+exit
+
 =begin
 p INPUT1
 # > "7\nA 1\nD 6\nC 2\nG 4\nB 70\nA 10\nB 5\n"
@@ -86,10 +114,12 @@ p solve(INPUT3)
 =end
 
 def solve(input_lines)
-  input_lines = input_lines.split("\n")
-  n = input_lines.shift.to_i
+  # 入力データ受け取り
+  _, *lines = input_lines.split("\n")
+
+  # 文字と数字のペアを集計する
   hash = {}
-  input_lines.each do |line|
+  lines.each do |line|
     s, d = line.split
     if hash[s]
       hash[s] += d.to_i
@@ -98,13 +128,15 @@ def solve(input_lines)
     end
   end
 
+  # 数字で降順ソートする
   sorted_hash = hash.sort_by { |k, v| v }.reverse.to_h
+
+  # 文字と整数を半角スペースで連結した要素を
+  # 改行区切りの文字列に変換して末尾に改行を加える
   sorted_hash.map { |item| item.join(" ") }.join("\n") << "\n"
 end
 
-p solve(INPUT1)
-p solve(INPUT2)
-p solve(INPUT3)
+puts solve(STDIN.read)
 
 =begin
 1行目に行数を表す整数 n、続く n 行の各行で「文字」と「整数」の組が空白区切りで入力されます。
