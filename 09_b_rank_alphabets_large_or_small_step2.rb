@@ -60,22 +60,22 @@ P
 
 EOS
 
-=begin
+# [解答例1]
 # "A" から "Z" までの文字列
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 s = gets.chomp
 top_idx = ALPHABET.index(s[0])
 end_idx = ALPHABET.index(s[-1])
-puts ALPHABET[top_idx..end_idx]
-=end
+(top_idx..end_idx).each do |idx|
+  puts ALPHABET[idx]
+end
 
-=begin
+# [解答例2]
 s = gets.chomp
 top_chr = s[0]
 end_chr = s[-1]
 puts (top_chr..end_chr).to_a
-=end
 
 =begin
 アルファベットの範囲の文字の出力 (paizaランク D 相当)

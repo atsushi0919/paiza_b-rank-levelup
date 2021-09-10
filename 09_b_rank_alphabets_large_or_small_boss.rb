@@ -28,6 +28,25 @@ OUTPUT3 = <<~"EOS"
   false
 EOS
 
+def solve(input_lines)
+  # 入力データ受け取り
+  x, y, c = input_lines.split
+
+  # x と y の間に c が含まれているか
+  result = if x <= c && c <= y
+      "true"
+    else
+      "false"
+    end
+
+  # 判定結果の末尾に改行を追加
+  result << "\n"
+end
+
+puts solve(STDIN.read)
+
+exit
+
 =begin
 def solve(input_lines)
   # 入力データ受け取り
@@ -54,9 +73,6 @@ def solve(input_lines)
 end
 
 puts solve(STDIN.read)
-p solve(INPUT1)
-p solve(INPUT2)
-p solve(INPUT3)
 
 =begin
 # [解答例1]

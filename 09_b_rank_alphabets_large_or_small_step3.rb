@@ -23,7 +23,6 @@ false
 
 EOS
 
-=begin
 # [解答例1]
 # "A" から "Z" までの文字列
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -37,7 +36,6 @@ if top_idx < end_idx
 else
   puts "false"
 end
-=end
 
 # [解答例2]
 s = gets.chomp

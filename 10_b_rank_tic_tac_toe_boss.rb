@@ -37,29 +37,37 @@ EOS
 =begin
 # [解答例1]
 def solve(input_lines)
+  # 入力データ受け取り
+  # 横5ライン
   h_lines = input_lines.split("\n").map(&:chars)
-
-  n = h_lines.length
+  
+  # 縦5ライン
   v_lines = h_lines.transpose
+
+  # 斜め2ライン
+  n = h_lines.length
   d_lines = [[], []]
   (0..n - 1).each do |i|
     d_lines[0].push(h_lines[i][i])
     d_lines[1].push(h_lines[n - 1 - i][i])
   end
 
+  # 全ラインをまとめる
   all_lines = h_lines + v_lines + d_lines
 
+  # 全ラインで勝者の判定を行う
   result = "D"
   all_lines.each do |line|
     if line.count("O") == n
       result = "O"
-      break
     elsif line.count("X") == n
       result = "X"
-      break
     end
+    break if result != "D"
   end
-  result
+
+  # 結果に改行を追加
+  result << "\n"
 end
 
 #puts solve(STDIN.read)

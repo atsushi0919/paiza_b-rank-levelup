@@ -35,7 +35,6 @@ Nagoya
 
 EOS
 
-=begin
 # [解答例1]
 a = gets.chomp
 b = gets.chomp
@@ -43,14 +42,11 @@ c = gets.chomp
 puts a
 puts b
 puts c
-=end
 
-=begin
 # [解答例2]
 N = 3
 ary = N.times.map { gets.chomp }
 puts ary
-=end
 
 =begin
 
