@@ -62,6 +62,36 @@ OUTPUT3 = <<~"EOS"
   CCC xxx
 EOS
 
+def solve(input_lines)
+  # 入力データ受け取り
+  input_lines = input_lines.split("\n")
+  n = input_lines.shift.to_i
+  users = {}
+  input_lines.shift(n).each do |line|
+    name, type = line.split
+    users[name] = type
+  end
+  m = input_lines.shift.to_i
+  fortune_telling = {}
+  input_lines.shift(m).each do |line|
+    type, fortune = line.split
+    fortune_telling[type] = fortune
+  end
+
+  # ユーザーを先頭から順に占う
+  # 名前と結果を半角スペースで連結して配列に格納する
+  result = []
+  users.each do |name, type|
+    result.push("#{name} #{fortune_telling[type]}")
+  end
+
+  # 判定結果を改行で連結し末尾に改行を追加
+  result.join("\n") << "\n"
+end
+
+puts solve(STDIN.read)
+
+exit
 =begin
 # [解答例1]
 def solve(input_lines)
@@ -106,6 +136,8 @@ def solve(input_lines)
   # 配列を改行で連結して末尾に改行を追加する
   result.join("\n") << "\n"
 end
+
+puts solve(STDIN.read)
 
 pp solve(INPUT1)
 # > [["Kyoko", "green"],
@@ -301,7 +333,7 @@ ccc333 xxx
 ddd444 www
 eee555 vvv
 
-出力例3
+出力��3
 AAA zzz
 BBB yyy
 CCC xxx

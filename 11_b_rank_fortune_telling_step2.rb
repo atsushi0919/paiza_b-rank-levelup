@@ -3,11 +3,11 @@
 
 <<~"EOS"
 
-          入力例1
-        5
-      Kyoko B
-    Rio O
-  Tsubame AB
+入力例1
+5
+Kyoko B
+Rio O
+Tsubame AB
 KurodaSensei A
 NekoSensei A
 
@@ -46,7 +46,6 @@ CCC A
 
 EOS
 
-=begin
 # [解答例1]
 n = gets.to_i
 users = {}
