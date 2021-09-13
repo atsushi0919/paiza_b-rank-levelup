@@ -34,10 +34,10 @@ OUTPUT3 = <<~"EOS"
   D
 EOS
 
-=begin
 # [解答例1]
 N = 5
 h_lines = N.times.map { gets.chomp.chars }
+
 v_lines = []
 (0..N - 1).each do |h|
   line = []
@@ -59,14 +59,12 @@ v_lines.each do |line|
 end
 
 puts result
-=end
 
-=begin
 # [解答例2]
 def solve(input_lines)
   h_lines = input_lines.split("\n").map(&:chars)
-
   n = h_lines.length
+
   v_lines = []
   (0..n - 1).each do |h|
     line = []
@@ -95,7 +93,6 @@ end
 puts solve(INPUT1)
 puts solve(INPUT2)
 puts solve(INPUT3)
-=end
 
 # [解答例3]
 def solve(input_lines)

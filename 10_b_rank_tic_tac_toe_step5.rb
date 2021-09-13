@@ -34,31 +34,7 @@ OUTPUT3 = <<~"EOS"
   D
 EOS
 
-=begin
-# [解答例1]
-N = 5
-h_lines = N.times.map { gets.chomp.chars }
-d_lines = [[], []]
-(0..N - 1).each do |i|
-  d_lines[0].push(h_lines[i][i])
-  d_lines[1].push(h_lines[N - 1 - i][i])
-end
-
-result = "D"
-d_lines.each do |line|
-  if line.count("O") == 5
-    result = "O"
-    break
-  elsif line.count("X") == 5
-    result = "X"
-    break
-  end
-end
-
-puts result
-=end
-
-# [解答例2]
+# [解答例]
 def solve(input_lines)
   h_lines = input_lines.split("\n").map(&:chars)
   n = h_lines.length
@@ -82,12 +58,12 @@ def solve(input_lines)
   result
 end
 
-#puts solve(STDIN.read)
+puts solve(STDIN.read)
 
 # [参考 確認用コード]
-puts solve(INPUT1)
-puts solve(INPUT2)
-puts solve(INPUT3)
+# puts solve(INPUT1)
+# puts solve(INPUT2)
+# puts solve(INPUT3)
 
 =begin
 五目並べ（斜め） (paizaランク C 相当)

@@ -35,12 +35,11 @@ OUTPUT3 = <<~"EOS"
 EOS
 
 =begin
-# [解答例1]
 def solve(input_lines)
   # 入力データ受け取り
   # 横5ライン
   h_lines = input_lines.split("\n").map(&:chars)
-  
+
   # 縦5ライン
   v_lines = h_lines.transpose
 
@@ -66,22 +65,29 @@ def solve(input_lines)
     break if result != "D"
   end
 
-  # 結果に改行を追加
+  # 判定結果の末尾に改行を追加
   result << "\n"
 end
 
-#puts solve(STDIN.read)
-
-# [参考 確認用コード]
+# 確認用コード
 p solve(INPUT1)
+# > "O\n"
+p solve(INPUT1) == OUTPUT1
+# > true
 p solve(INPUT2)
+# > "X\n"
+p solve(INPUT2) == OUTPUT2
+# > true
 p solve(INPUT3)
+# > "D\n"
+p solve(INPUT3) == OUTPUT3
+# > true
 =end
 
 # [解答例2]
 
-# 盤面情報を与えると判定する12ラインを返す
-def get_all_lines(board)
+# 盤面情報を与えると横・縦・斜めの12ラインを返す
+def all_lines(board)
   n = board.length
 
   # 縦5ライン
@@ -94,16 +100,13 @@ def get_all_lines(board)
     d_lines[1].push(board[n - 1 - i][i])
   end
 
-  # board: 横ライン
   # 横5ライン・縦5ライン・斜め2ラインを配列にして返す
   board + v_lines + d_lines
 end
 
 # ラインの情報を与えると勝者を判定する
-def judge_winner(lines)
-  all_lines = get_all_lines(board)
-
-  all_lines.each do |line|
+def winner(lines)
+  lines.each do |line|
     if line.count("O") == 5
       return "O"
     elsif line.count("X") == 5
@@ -118,24 +121,21 @@ def solve(input_lines)
   board = input_lines.split("\n").map(&:chars)
 
   # 横5ライン・縦5ライン・斜め2ラインの配列を取得
-  all_lines = get_all_lines(board)
+  all_lines = all_lines(board)
 
   # 各ラインを調べて勝者を判定する
-  all_lines.each do |line|
-    result = judge_winner(lines)
-    break if result != "D"
-  end
+  result = winner(all_lines)
 
-  # 判定結果に改行を追加
+  # 判定結果の末尾に改行を追加
   result << "\n"
 end
 
-#puts solve(STDIN.read)
+puts solve(STDIN.read)
 
 # [参考 確認用コード]
-p solve(INPUT1)
-p solve(INPUT2)
-p solve(INPUT3)
+#p solve(INPUT1)
+#p solve(INPUT2)
+#p solve(INPUT3)
 
 =begin
 五目並べ (paizaランク B 相当)

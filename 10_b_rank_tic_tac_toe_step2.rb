@@ -23,7 +23,6 @@ D
 
 EOS
 
-=begin
 # [解答例1]
 s = gets.chomp
 
@@ -43,9 +42,7 @@ elsif x == 5
 else
   puts "D"
 end
-=end
 
-=begin
 # [解答例2]
 s = gets.chomp
 
@@ -56,7 +53,6 @@ elsif s.count("X") == 5
 else
   puts "D"
 end
-=end
 
 =begin
 五目並べ(1行) (paizaランク D 相当)
